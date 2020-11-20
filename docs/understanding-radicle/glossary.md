@@ -3,38 +3,27 @@ id: glossary
 title: Glossary
 ---
 
-
 ## checkout
 To create a working copy of a [project][pr]. This working copy is where a
-[user][us] can make and publish changes to the project [repository][re] via 'git push rad'.
-For more on how working copies work in Radicle, see [Working
-Copies](/how-it-works.md/#working-copies)
-
-An individual change to a file (or set of files) that represents a single point
-in a version controlled history. Every commit can be identified by it's unique
-ID (in Git, the "SHA" or "hash"). This allows you to keep a record of all
-changes committed to a [project][pr] history along with who made them and when.
-Commits can also contain a brief description of what changes were made, also
-known as a commit message.
-
+[user][us] can make and publish changes to source code of a project via 'git push rad'.
+For more on how checking out works in Radicle, see [Working
+Copies][wc].
 
 ## connect
 To create a network connection to another Radicle [peer][pe]. Connected peers
 spread information between each other via gossip.
 
 ## contributor
-A [user][us] who has pushed code to a project.
-[project][pr].
+A [user][us] who has pushed and published changes to another user's [project][pr]. Once a user contributes to a project, it is added to their `My Projects` tab.
 
 ## display name
-A changeable and non-unique human-readable name chosen by the [user][us]. Like a
-"nickname" for a [Radicle ID][ri]. This will be possible to change in the
+A changeable and non-unique human-readable name chosen by the [user][us]. It can seen like a
+"nickname" for a user's [Radicle ID][ri]. This will be possible to change in the
 future. 
 
 ## follow
-Following a [project][pr] or [peer][us] replicates its data to the your machine
-(See [Tracking](/how-it-works.md/#tracking)). This allows the follower to
-subscribe to updates from the project / peer and signal interest by further
+Following a [project][pr] or [user][us] (technically a [peer][pe]) replicates its data to the your machine (See [Tracking][tr]). This allows the follower to
+subscribe to updates from the project or peer and signal interest by further
 replicating the data across their network, making it available to other peers.
 
 ## git
@@ -46,15 +35,14 @@ to disseminate information. Participants in the Radicle network share and spread
 data by keeping redundant copies of projects locally and sharing updates with
 peers. This allows data to be disseminated according to use and value: the more
 peers who are interested in certain data the more available it is
-made to the network. See [Gossip](/how-it-works.md/#replication-model)
+made to the network. See [Gossip][gp].
 
 ## maintainer
 A [user][us] who manages updates to the canonical view of a project. A
 maintainer is explicitly associated with the [project][pr] at the time of
-creation or later, via the [project][pr] metadata [See Data
-Model](/how-it-works.md/#data-model), but there may be multiple maintainers of a
-project, all maintaining their own trees. At creation, the creator of the
-[project][pr] is the sole maintainer.
+creation or later, via the metadata of a project's identity document ([See Data
+Model][dm]). At creation, the creator of the [project][pr] is the sole maintainer, but in the future there may be multiple maintainers of a
+project, all maintaining their own trees.
 
 
 ## main
@@ -142,6 +130,7 @@ Upstream app.
 
 
 [br]: #branch
+
 [pe]: #peer
 [pr]: #project
 [re]: #repository
@@ -149,3 +138,8 @@ Upstream app.
 [us]: #user
 
 [rl]: https://radicle.xyz/radicle-link.html
+
+[dm]: /how-it-works.md/#data-model
+[gp]: /how-it-works.md/#replication-model
+[tr]: /how-it-works.md/#tracking
+[wc]: /how-it-works.md/#working-copies
