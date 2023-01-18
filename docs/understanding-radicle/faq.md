@@ -2,253 +2,193 @@
 id: faq
 title: FAQ
 ---
-## How do I get started?
-Head over to the [Getting Started][gs] section for instructions on how to
-download and install the Radicle Upstream client.
 
-## How is collaborating on Radicle different than GitHub?
-In contrast to centralized code collaboration platforms, Radicle is designed for
-bazaar-style collaboration. On the Radicle network, content is distributed
-peer-to-peer via a process called gossip. This means that peers are in control
-of their social interactions as they self-host their own content and the content
-of any peers they are interested in. This also means that within projects, there
-isn't a single `master` branch that contributors merge into. Each peer maintains
-a view of a project with their changesets and branches. These views are gossiped
-around to other peers that are interested in those changes. Read more about the
-implications and approach to this design [here][ov].
+import Installation from '@site/src/components/Installation'
+
+## How do I get started with Radicle?
+
+<Installation />
+
+Our [user hub home](/) has a little more information about using `rad`, along with some helpful links.
+
+## What is 'sovereign code infrastructure'?
+
+We believe decentralized code collaboration &mdash; free, open-source, local-first, and censorship-resistant &mdash; is
+only possible if we replace the tools created by centralized services, owned by corporations, with alternatives built on
+open protocols and open-source code.
+
+In Radicle, _sovereignty_ means you truly own all aspects of your user identity and project (meta)data. _Code
+infrastructure_ refers to our growing network of hosted [seed nodes](glossary.md#seed-node), which is open-source
+software anyone can self-host, and will eventually include our [peer-to-peer](glossary.md#peer-to-peer-p2p) (P2P)
+network.
+
+For more about the Radicle vision, see [_Towards decentralized code
+collaboration_](https://radicle.mirror.xyz/Qz4Rr0R54KLPurqqswsQ2tfRtBs9MOYpw3dlY9VjyQ8).
+
+## What is the state of the Radicle ecosystem?
+
+Radicle is being actively developed by a handful of [core
+teams](https://forest-text-046.notion.site/Core-Teams-8faf6989047a40dab77959469b456f90): Clients, Funding, Community
+&amp; Governance, Growth, Marketing, and more.
+
+The Radicle Foundation, which has previously managed and funded all aspects of Radicle core development, is currently
+[transitioning into the
+RadicleDAO](https://forest-text-046.notion.site/Radicle-Governance-Hub-01b9f8e757cc4426ab64d2146071f46b#ee45f5993b2e4ff2bc95bfa3536c6450).
+
+We're currently in **Phase 0** of achieving our vision of sovereign code infrastructure.
+
+- **Phase 0** (active): Users can self-host or publish repositories to a network of hosted seed nodes. The network is
+  still in the process of decentralizing and is prone to change.
+- Phase 1: With gossip activated, user-deployed seed nodes can find each other and share their data without relying on
+  an intermediary. The network is resilient and censorship-resistant.
+- Phase 2: Any user can host their content locally and have it discovered by the Radicle network. At this stage, the
+  network has become fully self-sovereign.
+
+## How is Radicle funded and licensed?
+
+Radicle is funded through the Treasury of the Radicle Foundation, although we're transitioning that responsibility to
+the
+[RadicleDAO](https://forest-text-046.notion.site/Radicle-Governance-Hub-01b9f8e757cc4426ab64d2146071f46b#ee45f5993b2e4ff2bc95bfa3536c6450).
+The [Treasury](https://etherscan.io/address/0x8da8f82d2bbdd896822de723f55d6edf416130ba#tokentxns) is a community-owned
+and governed pool of capital for developing and growing the Radicle network and community. Those who own RAD tokens can
+propose, vote on, and implement new initiatives, which are funded through the Treasury's combination of RAD token and
+USDC.
+
+See the [Radicle Governance
+Hub](https://forest-text-046.notion.site/Radicle-Governance-Hub-01b9f8e757cc4426ab64d2146071f46b) for details on
+Radicle's current governance and plans for the future of RadicleDAO.
+
+Radicle is completely free and open-source, licensed under version 3 of the GNU General Public License (GPLv3) with the
+Radicle Linking Exception. You can read more about [how this license was
+chosen](https://radicle.community/t/radicle-licensing-model/282/8).
+
+## Why is Radicle a hosted service?
+
+Radicle currently hosts three seed nodes to provide data availability for the Radicle network. These seed nodes provide
+a data availability layer for the Radicle network, storing your identity and project data, but not your private keys,
+which means they can't take action, like altering your project's code or metadata, on your behalf.
+
+If you don't want to use a seed node hosted by Radicle, you can
+[self-host](https://github.com/radicle-dev/radicle-client-services) a seed node using hardware or a cloud instance you
+own.
+
+In the future, we'll deploy a new P2P network that allows data to flow directly between users rather than
+only through seed nodes.
 
 ## How is Radicle more secure than centralized platforms?
-The Radicle network is peer-to-peer and built on public key cryptography. To
-start, this means that there is no need to rely on third parties to access or
-use the Radicle network. It is harder to take down because there is no central
-point of failure, and is resistant to corporate and state capture and censorship. In
-addition, all data on the Radicle network is cryptographically signed & verified
-as it's gossiped between peers. While centralized platforms rely on user
-interface components and key oracles to signal trust from user to user, Radicle
-has designed trust into the core of the protocol.
+
+The Radicle network is built on public key cryptography. All data related to identity and project data &mdash; not just
+commits, but also issues, comments, and patches &mdash; is cryptographically signed and verified using an Ed25519
+keypair. We designed trust into the core of our protocols, and you own all aspects of your user identity and project
+(meta)data.
+
+The protocols and tools for centralized platforms are generally closed-source or use APIs you can't access as an
+individual. Because Radicle's protocols are all open-source, you're never locked into a single tool or client. Radicle
+develops the [`rad` CLI tool](https://github.com/radicle-dev/radicle-cli) and [web
+app](https://github.com/radicle-dev/radicle-interface), but anyone can build alternative clients or tools for accessing
+Radicle-hosted projects.
+
+Because seed nodes are [open-source](https://github.com/radicle-dev/radicle-client-services) and can be self-hosted,
+there is no central point of failure, making the Radicle network resistant to corporate and state capture and
+censorship.
+
+These security measures will be enhanced when we deploy the newest iteration of our P2P network.
 
 ## How does Radicle interact with Git?
-Radicle Link — the protocol that powers the Radicle network is built on Git. All
-Radicle data is stored in a single Git monorepo on your machine that is read
-from and written to via the Upstream client. To read more
-about Radicle's Git Implementation, see [How it Works][hw].
 
-## How is Radicle licensed?
-Radicle is completely free and open-source. It's licensed under version 3 of the
-GNU General Public License (GPLv3) with the Radicle Linking Exception. You can
-read more about how this license was chosen [here][ls].
+Radicle's CLI tooling (`rad`) uses a push-pull transport mechanism that's built on top of Git. When you run `rad init`
+in a Git repository for the first time, it adds a `rad` remote that points to the project's local state, which you then
+push to a seed node when you run `rad push`.
 
-## How will issues and PRs work?
-Social collaboration features (i.e. bug reports, patches, discussions etc...)
-are all on the Radicle roadmap. They will work very similarly to the experiences
-we have now, but will be local-first and cryptographically signed. This means
-issues, PRs, and discussions will be more secure, available offline, and stored
-on your machine as git objects — not on a central server!
+`rad` also creates and manages your identity &mdash; a unique Peer ID and personal URN &mdash; and cryptographically
+secures them with an Ed25519 keypair to identify you across the Radicle network.
 
-## When will CLI tooling be available?
-We're working on it! 🤞 We will introduce CLI tooling alongside of Upstream
-development.
+## How will issues and patches (PRs) work?
 
-## Can I backup a GitHub project on Radicle?
-Yes! Publishing a codebase to Radicle is a great way to create a peer-to-peer
-backup of your repositories. Maintaining a mirror of a project on Radicle is as
-simple as pushing to another remote. Read more about [creating
-projects][cp].
+Social collaboration features &mdash; such as issues and patches &mdash; are being actively developed. They will work
+very similarly to the experiences you're used to, but Radicle's are stored local-first, not on a centralized server,
+making them available offline. They're also cryptographically signed for security and trust.
+
+## How is collaborating on Radicle different than GitHub?
+
+In contrast to centralized code collaboration platforms, Radicle is designed for bazaar-style collaboration. Within
+projects, there isn't a single `master` branch that contributors merge into. Each peer maintains a view of a project
+with their changesets and branches, and all those who participate in a project must collaborate on how they decide upon,
+and merge into, a "canonical" version of their project. Unlike GitHub, Radicle doesn't force projects into the
+["cathedral model"](https://radicle.mirror.xyz/Qz4Rr0R54KLPurqqswsQ2tfRtBs9MOYpw3dlY9VjyQ8).
+
+## Can I back up or mirror a GitHub project on Radicle?
+
+Yes! Publishing a codebase to Radicle is a great way to create a backup of your repositories. Maintaining a
+mirror of a project on Radicle is as simple as pushing to multiple remotes.
+
+To create a mirror, follow our [migrate from GitHub to Radicle](migrate-github-radicle.mdx) guide using your existing
+repository, which helps you initialize your project and push the code to the Radicle network with `rad push`. To
+synchronize your GitHub and Radicle versions, run `rad push` on your current branch after every committed change.
 
 ## Can I replace GitHub with Radicle?
-If you want! While our Beta release will have only the basic collaboration features
-(i.e. code hosting, sharing, checking out, and pushing/pulling), we plan to
-introduce features that could support a similar day-to-day code collaboration
-experience to GitHub. They will include bug reporting, patches, code review, and
-discussions.
 
-That being said, while we believe that reducing one's reliance on
-centrally-hosted platforms is generally a good idea, we also believe that code
-collaboration solutions serve different purposes for different people. Radicle
-Upstream *will* support social collaboration, but it's priority will be
-delivering secure, local-first, peer-to-peer code collaboration — not an exact
-GitHub replica.
+Absolutely! While we're still working on in-depth collaboration features like issues and patches, you can already
+[create a Radicle project](using-radicle/create.md) a Radicle project from an existing GitHub-hosted repository and
+start pushing your changes with `rad push`.
+
+While we believe reducing one's reliance on centrally-hosted platforms is generally a good idea, we also believe that
+code collaboration solutions serve different purposes for different people. Radicle *will* support social collaboration
+through one or more projects, but our priority will be delivering secure, local-first, P2P code collaboration &mdash;
+not an exact GitHub replica.
 
 ## Where is my data stored?
-On the Radicle network, content is distributed peer-to-peer via a process called
-gossip. This means that peers self-host their own content — and the content of
-any peers they are interested in — locally on their machine in a [Git monorepo][hw].
-It also means that whenever your data is published to the network, it can be
-replicated and stored on another peer's machine.
+
+Radicle currently uses seed nodes and a **push-pull** protocol that uses `git push` to send changes to seed nodes and
+`git pull` to fetch updates. With this method, your data is only stored on the seed node you chose to sync your project
+with when you ran `rad init`, and with anyone who uses `rad clone` to create a copy of the project.
 
 ## Can I create private repositories on Radicle?
-No, not yet - but in the future! Private projects with end-to-end encryption are
-on our roadmap. In the meantime, be sure to note that everything you put on
-Radicle will be publicly available.
 
-## What is a remote?
-A remote refers to a version of your project that is maintained by another
-person. To collaborate with others on Radicle, you have to add and follow other
-their remotes to be able to fetch changes from them. You can manage remotes
-on your project page (See [Adding Remotes][ar]). For more on how remote
-repositories work, see the [Git documentation][mr].
+No, not yet! In the meantime, please note that everything you put on Radicle will be publicly available.
 
-## What's a Radicle ID?
-A Radicle ID is a unique way of identifying projects in the Radicle Network.
-You can find it on a project's page or on the [seed node dashboard][sn]. You
-use a project's Radicle ID to find it via Radicle Upstream.
+## What's a remote, peer ID, personal URN, project URN, and so on?
 
-## What's a Device ID?
-A Device ID is the encoding of a peer's public key that is tied to a specific device.
-People will be able to manage multiple Device IDs in the future, but for now you can
-only have one Device ID per identity.
-
-To be [added as a remote][ar] to a project, you need to share your Device ID.
-
-## What does following mean in Radicle?
-Following a project replicates its data to your machine by tracking it. This
-allows the follower to subscribe to updates from the project's maintainer(s) or
-other remotes. It is also a way to signal interest in the project or peer by
-further replicating the data across their network, making it available to other
-people on the network. See [Tracking][tr].
+Please see our [glossary](glossary.md) for definitions of various terms in a Radicle context.
 
 ## Can I use Radicle with multiple devices?
-Yes and no. While there isn't multi-device support yet, you can still create
-accounts on different devices, they just won't be linked under one Upstream user
-account.
+
+We provide no official support or guides to do so, but you can, in theory, use the same keyfile (`librad.key`) to
+authenticate the same Peer ID on multiple devices. This would allow you to push/pull code to the same project without
+having to manage multiple identities.
 
 ## How do I make sure nobody else has my display name?
-You can't.... yet. We will be introducing unique names soon 👍
 
-(P.S. While your display name isn't unique, your emoji avatar is!)
+User display names are non-unique, except when you link your your ENS name.
 
 ## What happens if I forget my passphrase?
-Without your passphrase, there is no way to grant the Upstream client access to
-your secret key. This means that without your passphrase, there is no way to
-access or publish data to the Radicle network - so make sure you keep it safe!
 
-## Can I change my passphrase?
-Not yet — so make sure to keep it in a safe place!
+Without your passphrase, `rad` can't unlock the keypair that validates your identity, which means you've lost access to
+push to existing projects on the Radicle network.
 
-## Why do I have to enter my passphrase everytime?
-Interactions through Git and the remote helper are ad-hoc and don't have the
-benefit of a long-running daemon - i.e. Upstream client. That means for now the
-passphrase has to be provided every time you interact with Radicle outside of
-a client.
+You can't change your passphrase, so keep it in a safe place!
 
-## I can't find a project on the network or see a peer's changes. What should I do?
-First, check to see if you are connected to the seed node by hovering over the
-Connection Status icon in your toolbar. If you are connected to one or more
-peer, navigate to the seed node dashboard (e.g. sprout.radicle.xyz) to see if
-you can find your Device ID.
+## Why do I have to enter my passphrase every time?
 
-![Seed Dashboard Search][sd]
-
-If you are connected to the seed node and can find yourself on the dashboard,
-try restarting the app. On restart, if there is still outstanding data to be
-found, try refreshing the app. Wait one minute before restarting the app again.
-
-If you are still running into problems, please submit a request in our [#support
-channel][sc].
+You shouldn't need to enter your passphrase every time you interact with the Radicle network. Depending on your setup,
+you may need to enter it once after login using `rad auth`.
 
 ## Can I delete a project?
-Currently, this feature is not supported but it is on the roadmap and will be
-included in an upcoming release. Until then, you can only remove your
-project from your local machine, thus limiting the number of peers who can find
-and replicate your project. You can not delete a project from another peer's
-local machine, as they retain control over their local data.
 
-## Why am I only connected to one peer?
-By default, the Upstream client is conecting to a seed node operated by Radicle.
-While we support [epidemic broadcast][eb] to find and connect to other peers, we
-don't have support for [hole punching][hp] just yet, which will prevent a stable conenction
-between two computers.
+Currently, this feature is not supported. You can remove your project from your local machine, but you can't delete a
+project from a Radicle seed node or another peer's local machine, as they retain control over their local data.
 
 ## I ran into a issue, where can I report it?
-Please reach out to us in our [#support channel][sc], or submit an issue on our
-[GitHub repository][gh].
+
+Please reach out to us in our [#support channel on Discord](https://discord.gg/j2HZCBDUvF), or submit an issue in one of
+our [GitHub repositories](https://github.com/radicle-dev/).
 
 ## I need some help, where do I reach out?
-For help, join our #support channel in our Matrix chat or in the Help category
-of our Discourse.
+
+Check out our [troubleshooting](troubleshooting.md) doc. If you don't find an answer to your question there, join our
+[#support channel on Discord](https://discord.gg/j2HZCBDUvF) and ask away.
 
 ## How do I join your Matrix channel?
-To join our Matrix chat, follow these steps:
 
-* Go to https://matrix.radicle.community
-* Create an account
-* Verify your account by email
-* Join the [community page][cc]
-
-To join our Matrix chat with an account from another Matrix server, you can use
-this [direct invite link][mc] to join #general. For more information on our
-community channels see [Join our Community][cc].
-
-## Can I run Radicle as a daemon?
-While technically possible, we haven't bundled it yet in a convenient package
-for anyone to run in the background. We are working hard to change that so we can
-help people operate Radicle nodes in many different ways. Should you be keen to
-have it as a daemon right now, check out how the [seed][si] is implemented, and
-try to run your own.
-
-## Is it possible to launch Upstream via links on the web?
-Yes, as of Upstream v0.2.1 we support opening links to Radicle projects in
-Upstream. Clicking the following link will launch Upstream and navigate to the
-specified project:
-
-  radicle://link/v0/rad:git:hnrkmzko1nps1pjogxadcmqipfxpeqn6xbeto
-
-The custom protocol is registered automatically when installing Upstream on
-macOS.
-
-On Linux you'll have to either manually register the custom protocol or
-integrate Upstream into your system with `AppImageLauncher` or `appimaged` as
-described [here][ai].
-
-Assuming you have downloaded the latest Upstream in
-`$HOME/Downloads/radicle-upstream-0.2.1.AppImage`, you can register the
-protocol by running the following commands:
-
-```sh
-chmod +x $HOME/Downloads/radicle-upstream-0.2.1.AppImage
-
-cat > $HOME/.local/share/applications/radicle-upstream.desktop <<EOF
-[Desktop Entry]
-Exec=$HOME/Downloads/radicle-upstream-0.2.1.AppImage %U
-Terminal=false
-Type=Application
-MimeType=x-scheme-handler/radicle;
-EOF
-
-update-desktop-database ~/.local/share/applications
-```
-
-**Note**: It's advisable to move the Upstream binary to a stable location
-before registering the custom protocol, otherwise the custom protocol
-handling will break if the binary is renamed or moved to another location.
-
-On Linux you can verify whether the custom protocol is working like this:
-```sh
-xdg-open "radicle://link/v0/rad:git:hnrkmzko1nps1pjogxadcmqipfxpeqn6xbeto"
-```
-
-Read more about the custom Radicle client URI scheme [here][cu].
-
-
-[ai]: https://docs.appimage.org/user-guide/run-appimages.html#integrating-appimages-into-the-desktop
-[ar]: using-radicle/tracking-and-viewing.md
-[cp]: using-radicle/creating-projects.md
-[cu]: https://github.com/radicle-dev/radicle-decisions/blob/master/proposals/0004.md
-[ov]: using-radicle/overview.md
-[gs]: getting-started.md
-[hw]: how-it-works.md/#git-implementation
-[tr]: how-it-works.md/#tracking
-[cc]: get-involved/community.md
-
-[sd]: /img/seed-dashboard-search.png
-
-[eb]: https://en.wikipedia.org/wiki/Gossip_protocol
-[gh]: https://github.com/radicle-dev/radicle-upstream/issues
-[hp]: https://en.wikipedia.org/wiki/Hole_punching_(networking)
-[ls]: https://radicle.community/t/radicle-licensing-model/282/8
-[mc]: https://matrix.to/#/#general:radicle.community
-[mr]: https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes
-[sc]: https://matrix.to/#/#support:radicle.community
-[si]: https://github.com/radicle-dev/radicle-bins/tree/master/seed
-[sm]: https://radicle.community/
-[sn]: http://sprout.radicle.xyz/
+Head over to matrix.radicle.community and create an account. Our Matrix rooms are synced with our #general and #support
+channels on Discord, so you'll always see the same information.

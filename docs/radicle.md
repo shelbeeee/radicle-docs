@@ -1,80 +1,118 @@
 ---
 id: what-is-radicle
-title: What is Radicle?
-sidebar_label: What is Radicle?
+title: Get started with Radicle
+sidebar_label: Get started
+slug: /
 ---
 
+import Installation from '@site/src/components/Installation'
+import Grid from '@site/src/components/Grid'
 
-Radicle is a decentralized code collaboration network built on open protocols 🌱. It enables developers
-to collaborate on code without relying on trusted intermediaries. Radicle was designed
-to provide similar functionality to centralized code collaboration platforms — or "forges" —
-while retaining Git’s peer-to-peer nature, building on what made distributed
-version control so powerful in the first place.
+Radicle is a decentralized code collaboration network built on open protocols 🌱. It enables developers to collaborate
+on code without relying on trusted intermediaries. Radicle was designed to provide similar functionality to centralized
+code collaboration platforms — or "forges" — while retaining Git’s peer-to-peer nature, building on what made
+distributed version control so powerful in the first place.
 
-> Read more about our vision for decentralized code collaboration <a href="https://radicle.xyz/blog/towards-decentralized-code-collaboration.html">here</a>.
+- Instead of user accounts and logins, Radicle uses public key cryptography to identify projects and their
+  collaborators.
+- Instead of issue trackers hosted and owned by a corporation, Radicle uses seed nodes. The Radicle Foundation sponsors
+  some, but you can always host a seed node of your own, and use all the same collaboration tools/processes, using
+  [open-source code](https://github.com/radicle-dev/radicle-client-services).
+- Instead of dictating your process for collaboration, Radicle lets anyone build new tools or design new workflows
+  around completely open protocols.
 
-Radicle also leverages Ethereum (opt-in) for unique global names, decentralized organizations, and protocols that help maintainers sustain their open-source work.
+Two interlacing clients create this experience:
 
-> Read more about the Radicle Ethereum integration <a href="https://radicle.xyz/blog/integrating-with-ethereum.html">here.</a>
+1. The **[`rad` command-line tool](https://github.com/radicle-dev/radicle-cli)**, which interacts with Git and the
+   Radicle network to help you host code or collaborate on projects.
+2. The **[web app](https://app.radicle.xyz)**, which provides a visual interface for discovering projects, viewing
+   code, and viewing patches from collaborators.
 
-## How it works
+Curious about the ideas and protocols that make these clients possible? Read about [how Radicle
+works](understanding-radicle/how-radicle-works.md).
 
-The network is powered by a peer-to-peer replication protocol built on Git,
-called Radicle Link. Radicle Link extends Git with peer-to-peer
-discovery by disseminating data via a process called gossip. That is,
-participants in the network share and spread data they are "interested" in by
-keeping redundant copies locally and sharing, otherwise known as "replicating",
-their local data with selected peers. By leveraging Git's smart transfer
-protocol, Radicle Link keeps Git's efficiency when it comes to data replication
-while offering global decentralized repository storage through the peer-to-peer
-networking layer.
+Radicle also addresses **open source funding** through [Drips](https://www.drips.network/), an Ethereum protocol for
+generating recurring income with subscriptions and NFT memberships. Drips helps you create a circular funding network by
+dripping funds to your favorite creators and dedicating a percentage of your incoming drips to others.
 
-Since all data on the network is stored locally by peers on the network,
-developers can share and collaborate on Git repositories *without* relying on
-intermediaries such as hosted servers.
+## How do I get started?
 
-> For more on Radicle Link, check out the [Understanding Radicle](understanding-radicle/how-it-works.md) section.
+Hosting and collaborating on code in Radicle relies on our CLI tooling &mdash; the bridge between Git and the Radicle
+network &mdash; and your identity, which is a **Peer ID** and **personal URN**, which cryptographically verify you and
+your devices with a secure Ed25519 keypair.
 
-## How is Radicle different from GitHub?
+<Installation />
 
-Collaborating on Radicle is slightly different than collaborating on centralized code collaboration platforms like GitHub and GitLab. 
+<Grid>
+  <div>
+    <a href="/migrate-github-radicle">
+      Leaving GitHub in favor of Radicle's sovereign code infrastructure? Check out our migration guide!
+    </a>
+  </div>
+  <div>
+    <a href="/using-radicle/collaboration">
+      Learn about Radicle's code collaboration workflows using CLI-based issues and patches.
+    </a>
+  </div>
+</Grid>
 
-1. The Radicle stack is open-source from top to bottom. There are no "closed" components.
-Every component of the Radicle stack is auditable, modifiable, and extendable.
+:::tip
 
+If you need help installing or using Radicle, check out our [troubleshooting](troubleshooting.md) guide,
+[FAQ](understanding-radicle/faq.md), or join a [community channel](get-involved/community.md) where our core teams hang
+out.
 
-2. Radicle is built *entirely* on open protocols. There are no "special servers", privileged
-users or companies in control of your collaboration.
+:::
 
+## What's next?
 
-3. Radicle is based on a peer-to-peer architecture instead of a client-server model.
+Now that you've installed `rad` and created your Radicle identity, it's time to securely collaborate on a sovereign code
+infrastructure.
 
+### Learn the basics of `rad`
 
-4. Radicle is **not** global by default. Instead, the social graph of peers and projects you 
-track determines what content you see, interact with, and replicate.
+- `rad help`: See all the commands provided by `rad`.
+- `rad self`: See information about your current identity and display name, URN, Peer ID, and more.
+- `rad ls`: View a list of projects you've synced with the Radicle network.
+- `rad auth`: Create and manage multiple Radicle [identities](using-radicle/identity.md).
+- `rad [command] --help`: See additional options for an individual command.
 
+### Start hosting and collaborating on code
 
-5. Radicle is designed for bazaar-style development. This means that within projects, there isn't 
-a single master branch that contributors merge into. Instead, peers maintain their own views of 
-projects that can be fetched and merged by other peers via patches.
+<Grid>
+  <div>
+    <a href="/using-radicle/create">
+      Create a new Radicle project
+    </a>
+  </div>
+  <div>
+    <a href="/using-radicle/clone">
+      Clone an existing project
+    </a>
+  </div>
+  <div>
+    <a href="/using-radicle/issues">
+      Create or view issues
+    </a>
+  </div>
+  <div>
+    <a href="/using-radicle/track-review-merge">
+      Collaborate with patches
+    </a>
+  </div>
+</Grid>
 
-6. Radicle replaces the Org functionality of centralized forges and their hierarchical admin models with decentralized organizations on Ethereum
+### Learn more about how Radicle works
 
-7. Radicle is a self-sustained and community-owned network — not a corporation. It's governance is organized by a token called RAD that lives on Ethereum.
-
-
-> For more on the Radicle's social model, check out <a href="https://radicle.xyz/blog/collaborating-on-radicle.html">Collaborating on Radicle</a>. 
-
-## How do I use Radicle?
-
-The easiest way to use Radicle is with **Upstream**, a desktop client developed by
-the founding team of the Radicle project. With Upstream, you can create an
-identity, host your code, and collaborate with others on the Radicle network.
-
-Head over to [Getting Started][gs] for a walkthrough on how to download Upstream
-and become a part of the network.
-
-
-[gs]: getting-started.md
-[wh]: https://radicle.xyz/blog/towards-decentralized-code-collaboration.html
-
+<Grid>
+  <div>
+    <a href="/understanding-radicle/how-radicle-works">
+      Peek into the ideas, protocols, networks, and clients that create the Radicle experience.
+    </a>
+  </div>
+  <div>
+    <a href="/understanding-radicle/faq">
+      Learn about sovereign code infrastructure, the state of the Radicle ecosystem, and more.
+    </a>
+  </div>
+</Grid>
