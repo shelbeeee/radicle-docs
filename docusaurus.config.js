@@ -6,9 +6,9 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Radicle Docs',
+  title: 'RadicleDAO Documentation',
   tagline: 'A peer-to-peer stack for building software together.',
-  url: 'https://docs.radicle.xyz',
+  url: 'https://docs.radicle.community',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -81,14 +81,14 @@ const config = {
         },
         items: [
           {
-            href: 'https://radicle.xyz',
-            label: 'Home',
-            position: 'right',
+            href: '/community',
+            label: 'Community',
+            position: 'left',
           },
           {
-            href: 'https://app.radicle.xyz',
-            label: 'Browse Radicle',
-            position: 'right',
+            href: '/governance',
+            label: 'Governance',
+            position: 'left',
           },
         ],
       },
